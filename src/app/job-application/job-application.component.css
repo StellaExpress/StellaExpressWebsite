@@ -1,0 +1,166 @@
+.job-application-title {
+    border-bottom: 3px solid black;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.job-application {
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.job-type-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.specific-job-data {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 5px;
+}
+
+.driver-position {
+    text-align:center;
+}
+
+.job-type-radio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.owner-operator {
+    margin-top: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 3px;
+    text-align: center;
+}
+
+.company-driwer {
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.extra-driver-data {
+    margin-top: 24px;
+    border-bottom: 2px solid black;
+    padding: 24px;
+}
+
+.extra-exept-cdl {
+    padding-bottom: 38px;
+}
+
+.office-worker {
+    text-align: center;
+}
+
+.office-worker-label {
+    margin-bottom: 15px;
+}
+
+.invalid-field-add {
+    color:  red;
+}
+
+.required-star {
+    color:  red;
+    padding-left: 3px;
+}
+
+.birth-phone-required {
+    text-align: left;
+}
+
+.invalid-field {
+    border: 1px solid red;
+}
+
+.invalid-form {
+    color: red;
+    text-align: center;
+}
+
+.applay-button-container {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+.applay-button {
+    width: 100%;
+    background-color: #800000;
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+}
+
+.applay-button:hover {
+    background-color: #eb3729;
+}
+
+.col-lg-6 {
+    text-align: center;
+}
+
+.additional-message {
+    margin-top: 15px;
+}
+
+.job-type-radio-button {
+    font-size: 24px;
+}
+
+.container-marketing {
+    height: 400px;
+    width: 100%;
+    background-image:  linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.15)),url("../../assets/images/marketing.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin-top: 15px;
+
+}
+
+.marketing-text {
+    color: white;
+    font-family: 'Cabin';
+    font-weight: bold;
+    font-size: 54px;
+    padding-left: 24px;
+}
+
+.marketing-text2 {
+    color: white;
+    font-size: 24px;
+    font-family: 'Cabin';
+    padding-left: 24px;
+}
+
+.red-line {
+    width: 200px;
+    height: 30px;
+    padding-left: 24px
+}
+
+@media (max-width: 710px) {
+    .marketing-text {
+        font-size: 39px;
+    }
+
+    .container-marketing {
+        height: auto;
+    }
+}
+
+@media (max-width: 860px) {
+    .job-application {
+        width: 100%;
+    }
+}

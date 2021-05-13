@@ -1,0 +1,85 @@
+.about-us {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.about-us-img {
+    background-color: #800000;
+}
+
+.about-us-text {
+    background-color: #800000;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.about-us-title {
+    text-align: center;
+    margin-top: 10px;
+    border-bottom: 3px solid rgb(43, 38, 38);
+    color: white;
+}
+
+.about-us-main-text {
+    text-align: center;
+    color:white;
+}
+
+.red-line-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.red-line-left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.red-line {
+    width: 200px;
+    height: 30px;
+}
+
+.marketing-text {
+    display: flex;
+    justify-content: center;
+}
+
+.text {
+    font-size: 45px;
+    text-align: center;
+}
+
+.red-text {
+    color:#800000;
+    font-weight: 500;
+}
+
+@media (max-width: 992px) {
+
+    .red-line-left {
+        justify-content: center;
+    }
+
+    .red-line-right {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 860px) {
+    .text {
+        font-size: 24px;
+    }
+}
+
+.container-marketing {
+
+    margin-top: 54px;
+    margin-bottom: 94px;
+}
+
+.volvo-trucks-images {
+    margin-top: 54px;
+}

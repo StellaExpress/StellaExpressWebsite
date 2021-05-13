@@ -1,0 +1,295 @@
+<form #form="ngForm">
+  <div class="container-fluid job-application" id="job-application">
+      <div class="row">
+        <div class="col-xl-12">
+          <h1 class="job-application-title" data-aos="flip-right">APPLICATION FORM</h1>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-4">
+              <div class="invalid-field-add" *ngIf="!name.valid && name.touched">
+                Name is required
+              </div>
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Name<span class="required-star">*</span></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="..." aria-label="Username" name="name" ngModel required #name="ngModel" aria-describedby="basic-addon1" [ngClass]="{'invalid-field': !name.valid && name.touched }" >
+              </div>
+          </div>
+          <div class="col-lg-4">
+              <div class="invalid-field-add" *ngIf="!lastname.valid && lastname.touched">
+                Last name is required
+              </div>
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Last name<span class="required-star">*</span></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="..." aria-label="Username" name="lastname" ngModel required #lastname="ngModel"  [ngClass]="{'invalid-field': !lastname.valid && lastname.touched }" aria-describedby="basic-addon1">
+                </div>
+          </div>
+          <div class="col-lg-4">
+              <div class="invalid-field-add" *ngIf="!email.valid && email.touched">
+                Email is required
+              </div>
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Email<span class="required-star">*</span></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="..." aria-label="Username" name="email" ngModel required #email="ngModel" [ngClass]="{'invalid-field': !email.valid && email.touched }" aria-describedby="basic-addon1">
+                </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="invalid-field-add birth-phone-required" *ngIf="!cellphone.valid && cellphone.touched">
+            Cell phone is required
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Cell phone<span class="required-star">*</span></span>
+            </div>
+            <input type="text" class="form-control" placeholder="..." name="cellphone" ngModel required #cellphone="ngModel" [ngClass]="{'invalid-field': !cellphone.valid && cellphone.touched }" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="invalid-field-add birth-phone-required" *ngIf="!dateofbirth.valid && dateofbirth.touched">
+           Date of birth is required
+          </div> 
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Date of birth<span class="required-star">*</span></span>
+            </div>
+            <input type="text" class="form-control" placeholder="01/01/1999" name="dateofbirth" ngModel required #dateofbirth="ngModel" [ngClass]="{'invalid-field': !dateofbirth.valid && dateofbirth.touched }" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 job-type-col-label">
+          <h6>Plesae select a job type</h6>
+        </div>
+        <div class="col-xl-12 job-type-buttons">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-danger active job-type-radio-button">
+              <input type="radio" name="options" id="option1" checked (click)="selectDriver()"> Driver
+            </label>
+            <label class="btn btn-danger job-type-radio-button">
+              <input type="radio" name="options" id="option2" (click)="selectOffice()"> Company worker
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row specific-job-data">
+        <div class="col-xl-12" *ngIf="jobTypeDriver">
+          <div class="row">
+            <p>Extra data for driver job</p>
+          </div>
+          <div class="col-xl-12">
+            <h6 class="driver-position">What position are you applying for?<span class="required-star">*</span></h6>
+            <div class="job-type-radio row">
+              <div class="col-lg-6">
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="companydriwer" value="company-driver" name="jobtype" ngModel #jobtype="ngModel" class="custom-control-input" (click)="selectCompanyDriver()">
+                  <label class="custom-control-label" for="companydriwer">Company driver</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="owneroperator" value="owner-operator" name="jobtype" ngModel #jobtype="ngModel" class="custom-control-input" (click)="selectOwnerOperator()">
+                  <label class="custom-control-label" for="owneroperator">Owner operator</label>
+                </div>
+              </div>
+            </div>
+            <div class="owner-operator row" *ngIf="ownerOperator">
+              <div class=" col-lg-6">
+                <div>
+                  <p>Physical insurance:<span class="required-star">*</span></p>
+                </div>
+                <div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="insuranceNo" ngModel name="insurance" value="No" class="custom-control-input">
+                    <label class="custom-control-label" for="insuranceNo">No</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="insuranceYes" ngModel name="insurance" value="Yes" class="custom-control-input">
+                    <label class="custom-control-label" for="insuranceYes">Yes</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div>
+                  <p>You own a trailer:<span class="required-star">*</span></p>
+                </div>
+                <div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="trailerNo" ngModel name="trailer" value="No"  class="custom-control-input">
+                    <label class="custom-control-label" for="trailerNo">No</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" id="trailerYes" ngModel name="trailer" value="Yes" class="custom-control-input">
+                    <label class="custom-control-label" for="trailerYes">Yes</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="company-driwer" *ngIf="companyDriver">
+              <div class="company-driwer-options">
+                Please chech:<span class="required-star">*</span>
+              </div>
+              <div class="custom-control custom-radio">
+                <input type="radio" id="solo" ngModel name="companyDriver" value="Solo"class="custom-control-input">
+                <label class="custom-control-label" for="solo">Solo</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input type="radio" id="team" ngModel name="companyDriver" value="Team" class="custom-control-input">
+                <label class="custom-control-label" for="team">Team</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input type="radio" id="both" ngModel name="companyDriver" value="Both" class="custom-control-input">
+                <label class="custom-control-label" for="both">Both</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-12">
+            <div class="row tickets extra-driver-data extra-exept-cdl">
+              <div class="col-xl-12">
+                <h6>Any tickets past 1 year?<span class="required-star">*</span></h6>
+              </div>
+              <div class="col-lg-6">
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="ticketNo" ngModel name="ticket" value="No" class="custom-control-input">
+                  <label class="custom-control-label" for="ticketNo">No</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="ticketYes" ngModel name="ticket" value="Yes" class="custom-control-input">
+                  <label class="custom-control-label" for="ticketYes">Yes</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-12">
+            <div class="row accidents extra-driver-data extra-exept-cdl">
+              <div class="col-xl-12">
+                <h6>Any accidents past 1 year?<span class="required-star">*</span></h6>
+              </div>
+              <div class="col-lg-6">
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="accidentsNo" ngModel name="accident" value="No" class="custom-control-input">
+                  <label class="custom-control-label" for="accidentsNo">No</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="accidentsYes" ngModel name="accident" value="Yes" class="custom-control-input">
+                  <label class="custom-control-label" for="accidentsYes">Yes</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-12">
+            <div class="row experience extra-driver-data extra-exept-cdl">
+              <div class="col-xl-12">
+                <h6>How much driving experience have you had?<span class="required-star">* Select some range</span></h6>
+              </div>
+              <div class="col-xl-12">
+                <select name="experience" ngModel class="custom-select custom-select-sm">
+                  <option value="0-1 years" selected>0-1 years</option>
+                  <option value="1-2 years">1-2 years</option>
+                  <option value="2-5 years">2-5 years</option>
+                  <option value="5+ years">5+ years</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-12">
+            <div class="row cdlnumber extra-driver-data">
+              <div class="col-xl-12">
+                <h6>CDL Number<span class="required-star">*</span></h6>
+              </div>
+              <div class="col-xl-12">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="CDL Number" name="cdlnumber" ngModel required #cdlnumber="ngModel" [ngClass]="{'invalid-field': !cdlnumber.valid && cdlnumber.touched }" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                </div>
+                <div class="invalid-field-add" *ngIf="!cdlnumber.valid && cdlnumber.touched">
+                  CDL number is required
+                 </div> 
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-12">
+            <div class="row cdlstate extra-driver-data extra-exept-cdl">
+              <div class="col-xl-12">
+                <h6>CDL State<span class="required-star">* Select state</span></h6>
+              </div>
+              <div class="col-xl-12">
+                <select name="cdlstate" ngModel class="custom-select custom-select-sm">
+                  <option [value]="country" *ngFor="let country of countries"> {{ country }} </option>
+                </select>
+              </div>
+            </div>
+          </div>  
+        </div>
+        <div class="col-xl-12 office-worker" *ngIf="jobTypeOffice">
+          <div class="row">
+            <p>Extra data for company office job</p>
+            <div class="col-xl-12">
+              <h6 class="office-worker-label">Please check the types of jobs you are interested in:<span class="required-star">*</span></h6>
+            </div>
+            <div class="col-lg-4">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" name="safety" ngModel class="custom-control-input" id="safety">
+                <label class="custom-control-label" for="safety">Safety</label>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" name="dispatch" ngModel class="custom-control-input" id="dispatch">
+                <label class="custom-control-label" for="dispatch">Dispatch</label>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" name="accounting" ngModel class="custom-control-input" id="accounting">
+                <label class="custom-control-label" for="accounting">Accounting</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="input-group additional-message">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Additional message</span>
+            </div>
+            <textarea class="form-control" name="additionalmessage" ngModel aria-label="With textarea"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4 applay-button-container">
+          <button class="applay-button" (click)="submitForm(form.value)" [disabled]="!form.valid" >Applay</button></div>
+        <div class="col-lg-4"></div>
+      </div>
+      <div class="invalid-form" *ngIf="formValid">
+        Please fill form corect
+      </div>
+      <div class="invalid-form" *ngIf="!formValid">
+        Please fill in all required fields marked with (*)
+      </div>
+  </div>
+</form>
+
+<div class="container-marketing">
+  <div >
+    <p class="marketing-text">Your trust is our main goal</p>
+    <img src="assets/images/boder.png" class="red-line">
+  </div>
+  <div>
+    <p class="marketing-text2">Well trained and experienced drivers in our team work 24/7/365 to provide trustworthy and safe delivery to the ultimate destination</p>
+  </div>
+</div>
